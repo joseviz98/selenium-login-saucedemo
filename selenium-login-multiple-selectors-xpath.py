@@ -13,13 +13,13 @@ driver = webdriver.Chrome(service=service)
 driver.get("https://www.saucedemo.com/")
 time.sleep(2)
 
-# Ingresamos el usuario 
-username = driver.find_element(By.ID, "user-name") # primero ubicamos el input y lo guardamos en una variable
-username.send_keys("standard_user") # a esa varible le pasamos el valor que queremos que se escriba en el input
 
-# Ingresamos la contraseña
-password = driver.find_element(By.ID, "password") # primero ubicamos el input y lo guardamos en una variable
-password.send_keys("secret_sauce") # a esa varible le pasamos el valor que queremos que se escriba en el input
+username = driver.find_element(By.XPATH, "//input[@id='user-name']")
+password = driver.find_element(By.XPATH, "//input[@id='password']")
+
+# Escribimos en los inputs
+username.send_keys("standard_user")
+password.send_keys("secret_sauce")
 
 # Damos clic el botón Login
 time.sleep(2)
@@ -27,7 +27,7 @@ loginbutton = driver.find_element(By.ID, "login-button") # primero ubicamos el i
 loginbutton.click() 
 
 # Validamos que el login fue correcto buscando el elemento Products
-validarlogin = driver.find_element(By.CLASS_NAME, "title")
+validarlogin = driver.find_element(By.XPATH, "//span[text()='Products']")
 assert validarlogin.text == "Products"
 time.sleep(2)
 print("✅ El login es correcto")

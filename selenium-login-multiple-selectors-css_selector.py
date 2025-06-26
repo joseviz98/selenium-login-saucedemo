@@ -13,13 +13,17 @@ driver = webdriver.Chrome(service=service)
 driver.get("https://www.saucedemo.com/")
 time.sleep(2)
 
-# Ingresamos el usuario 
-username = driver.find_element(By.ID, "user-name") # primero ubicamos el input y lo guardamos en una variable
-username.send_keys("standard_user") # a esa varible le pasamos el valor que queremos que se escriba en el input
+# Encontramos los input del login mediante CSS selector
+#username = driver.find_element(By.CSS_SELECTOR, "#user-name") # primero ubicamos el input y lo guardamos en una variable
+#password = driver.find_element(By.CSS_SELECTOR, "input[placeholder='Password']") # ubicamos el input de password y lo guardamos en una variable
 
-# Ingresamos la contraseña
-password = driver.find_element(By.ID, "password") # primero ubicamos el input y lo guardamos en una variable
-password.send_keys("secret_sauce") # a esa varible le pasamos el valor que queremos que se escriba en el input
+campos = driver.find_elements(By.CSS_SELECTOR, ".form_input")
+username = campos[0]
+password = campos[1]
+# Escribimos en los inputs
+
+username.send_keys("standard_user")
+password.send_keys("secret_sauce")
 
 # Damos clic el botón Login
 time.sleep(2)
