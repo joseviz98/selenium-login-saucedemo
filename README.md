@@ -47,11 +47,3 @@ Demostrar cómo se puede automatizar un mismo flujo usando diferentes estrategia
 - ✔️ Localización por atributos y clases vía CSS Selectors
 - ✔️ Localización estructural vía XPath
 
----
-
-## 📸 Capturas de ejemplo (opcional)
-
-Puedes agregar aquí imágenes de la ejecución de los scripts si lo deseas, por ejemplo:
-
-```markdown
-![Login exitoso con ID](./img/login_by_id.png)
